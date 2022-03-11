@@ -39,7 +39,7 @@ recipe:
 - wait:
 - launch:
     name: 'Uplay'
-    path: '"C:\Program Files (x86)\Ubisoft\Ubisoft Game Launcher\Uplay.exe"'
+    path: 'C:\Program Files (x86)\Ubisoft\Ubisoft Game Launcher\Uplay.exe'
 - wait:
 #- launch:
 #     name: 'Warframe'

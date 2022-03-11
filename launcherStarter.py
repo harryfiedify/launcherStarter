@@ -158,7 +158,7 @@ def main():
             print('')
             print('launching '+l['launch']['name'])
             #print(l['launch'])
-            os.popen('start '+l['launch']['path'])
+            os.popen('"'+l['launch']['path']+'"')
 
 
 
