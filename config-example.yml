@@ -1,0 +1,32 @@
+defaults:
+  wait: # set default values for "wait" command
+    cpu: False
+    cpu-limit: 25 # percent
+    cpu-length: 20 # seconds
+    network: True
+    network-limit: 1000 # kB/s
+    network-length: 90 # seconds
+    disk: True
+    disk-limit: 5000 # kB/s
+    disk-length: 30 # seconds
+    time: 0 # seconds, 0=off
+    timeout: 0 # seconds, 0=off
+
+recipe:
+# these items are handled in sequential order
+- wait: 
+    time: 10
+    cpu: True
+- launch:
+    name: 'Dummy'
+    path: 'cmd'
+- wait:
+    time: 10
+    disk-limit: 0
+    timeout: 20
+- launch:
+    name: 'Dummy2'
+    path: 'powershell'
+- wait:
+    disk: False
+    network-limit: 0
