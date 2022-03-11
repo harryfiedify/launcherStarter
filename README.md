@@ -6,7 +6,10 @@ It will start up a list of executables in sequential order, and wait for system 
 
 ## Installation & Usage
 
-Install Python 3 to PATH. Customize `config-example.yml` to your liking and save as `config.yml`. Start by executing `run.bat`.
+1. Install Python 3 to PATH. 
+2. Setup dependencies with `pip install -r requirements.txt` 
+3. Customize `config-example.yml` to your liking and save as `config.yml`. 
+4. Start by executing `run.bat`.
 
 Optionally, you can supply a different config file as an argument:
 `python launcherStarter.py file.yml`
