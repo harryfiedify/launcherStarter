@@ -1,7 +1,7 @@
 defaults:
-  wait: # set default values for "wait" command
+  wait: # set default values for "wait" command, these can be overridden below
     cpu: False
-    cpu-limit: 25 # percent
+    cpu-limit: 30 # percent
     cpu-length: 20 # seconds
     network: True
     network-limit: 1000 # kB/s
@@ -9,24 +9,43 @@ defaults:
     disk: True
     disk-limit: 5000 # kB/s
     disk-length: 30 # seconds
-    time: 0 # seconds, 0=off
+    time: 10 # seconds, 0=off
     timeout: 0 # seconds, 0=off
 
 recipe:
 # these items are handled in sequential order
 - wait: 
-    time: 10
     cpu: True
+    timeout: 180
 - launch:
-    name: 'Dummy'
-    path: 'cmd'
+    name: 'Battle.net'
+    path: 'C:\Program Files (x86)\Battle.net\Battle.net Launcher.exe'
 - wait:
-    time: 10
-    disk-limit: 0
-    timeout: 20
 - launch:
-    name: 'Dummy2'
-    path: 'powershell'
+    name: 'Epic Games'
+    path: 'C:\Program Files (x86)\Epic Games\Launcher\Portal\Binaries\Win32\EpicGamesLauncher.exe'
 - wait:
-    disk: False
-    network-limit: 0
+- launch:
+    name: 'GOG Galaxy'
+    path: 'C:\Program Files (x86)\GOG Galaxy\GalaxyClient.exe'
+- wait:
+- launch:
+    name: 'Origin'
+    path: 'C:\Program Files (x86)\Origin\Origin.exe'
+- wait:
+- launch:
+    name: 'Steam'
+    path: 'C:\Program Files (x86)\Steam\Steam.exe'
+- wait:
+- launch:
+    name: 'Uplay'
+    path: '"C:\Program Files (x86)\Ubisoft\Ubisoft Game Launcher\Uplay.exe"'
+- wait:
+#- launch:
+#     name: 'Warframe'
+#     path: '%localappdata%\Warframe\Downloaded\Public\Tools\Launcher.exe'
+# - wait:
+# - launch:
+#     name: 'Wargaming.net Game Center'
+#     path: 'C:\ProgramData\Wargaming.net\GameCenter\wgc.exe'
+# - wait:
